@@ -1,0 +1,29 @@
+{
+  "name": "load-common-grunt-tasks",
+  "version": "0.0.1",
+  "description": "allows you to initialize common tasks for your module",
+  "keywords": [
+    "grunt",
+    "tasks",
+    "dependencies"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "chmontgomery",
+    "email": "christopher.montgomery@dowjones.com"
+  },
+  "files": [
+    "load-common-grunt-tasks.js"
+  ],
+  "main": "load-common-grunt-tasks",
+  "dependencies": {
+    "grunt-contrib-jshint": "~0.7.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.9"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
