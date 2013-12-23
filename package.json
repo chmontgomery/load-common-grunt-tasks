@@ -1,40 +1,41 @@
 {
-    "name": "load-common-grunt-tasks",
-    "version": "0.0.2",
-    "description": "Load common grunt tasks and configs so you don't need to redefine them for every module",
-    "keywords": [
-        "grunt",
-        "load",
-        "require",
-        "tasks",
-        "dependencies"
-    ],
-    "homepage": "https://github.com/chmontgomery/load-common-grunt-tasks",
-    "bugs": "https://github.com/chmontgomery/load-common-grunt-tasks/issues",
-    "license": "MIT",
-    "author": {
-        "name": "Chris Montgomery",
-        "email": "chr.montgomery@gmail.com"
-    },
-    "files": [
-        "load-common-grunt-tasks.js"
-    ],
-    "main": "load-common-grunt-tasks",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/chmontgomery/load-common-grunt-tasks.git"
-    },
-    "scripts": {
-        "test": "grunt"
-    },
-    "dependencies": {
-        "grunt-contrib-jshint": "~0.7.2"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-cli": "~0.1.9"
-    },
-    "engines": {
-        "node": ">=0.8.0"
-    }
+  "name": "load-common-grunt-tasks",
+  "version": "0.0.3",
+  "description": "Load common grunt tasks and configs so you don't need to redefine them for every module",
+  "keywords": [
+    "grunt",
+    "load",
+    "require",
+    "tasks",
+    "dependencies"
+  ],
+  "homepage": "https://github.com/chmontgomery/load-common-grunt-tasks",
+  "bugs": "https://github.com/chmontgomery/load-common-grunt-tasks/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Chris Montgomery",
+    "email": "chr.montgomery@gmail.com"
+  },
+  "files": [
+    "load-common-grunt-tasks.js"
+  ],
+  "main": "load-common-grunt-tasks",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chmontgomery/load-common-grunt-tasks.git"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "dependencies": {
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-jasmine-bundle": "~0.1.4"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.9"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
 }
