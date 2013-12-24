@@ -1,6 +1,6 @@
 {
   "name": "load-common-grunt-tasks",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Load common grunt tasks and configs so you don't need to redefine them for every module",
   "keywords": [
     "grunt",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "grunt-contrib-jshint": "~0.7.2",
-    "grunt-jasmine-bundle": "~0.1.4"
+    "grunt-mocha-test": "~0.8.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

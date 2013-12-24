@@ -4,7 +4,7 @@ module.exports = function (grunt) {
      * we want to load the module dependencies from load-common-grunt-tasks so traverse the module tree to find them
      */
     grunt.loadTasks('./node_modules/load-common-grunt-tasks/node_modules/grunt-contrib-jshint/tasks');
-    grunt.loadTasks('./node_modules/load-common-grunt-tasks/node_modules/grunt-jasmine-bundle/tasks');
+    grunt.loadTasks('./node_modules/load-common-grunt-tasks/node_modules/grunt-mocha-test/tasks');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -18,22 +18,17 @@ module.exports = function (grunt) {
                 globals: {}
             }
         },
-        spec: {
-            options: {
-                minijasminenode: {
-                    showColors: true
-                }
-            },
-            unit: {
+        mochaTest: {
+            test: {
                 options: {
-                    helpers: ["test/resource/**/*.js"],
-                    specs: "test/**/*_test.js"
-                }
+                    reporter: 'spec'
+                },
+                src: ['test/*.js']
             }
         }
     });
 
-    grunt.registerTask('test', ['spec','jshint']);
+    grunt.registerTask('test', ['mochaTest','jshint']);
 
     grunt.registerTask('default', ['test']);
 };
