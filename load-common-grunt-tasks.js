@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 
     var testCoverageOutputFile = 'test-coverage-output.html';
     grunt.initConfig({
-        pkg: grunt.file.readJSON(pathToLoadCommon + '/package.json'),
+        pkg: grunt.file.readJSON('package.json'),
         env: process.env,
         jshint: {
             // define the files to lint

@@ -1,6 +1,6 @@
 {
   "name": "load-common-grunt-tasks",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Load common grunt tasks and configs so you don't need to redefine them for every module",
   "keywords": [
     "grunt",
