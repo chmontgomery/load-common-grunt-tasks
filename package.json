@@ -1,6 +1,6 @@
 {
   "name": "load-common-grunt-tasks",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Load common grunt tasks and configs so you don't need to redefine them for every module",
   "keywords": [
     "grunt",
@@ -17,7 +17,8 @@
     "email": "chr.montgomery@gmail.com"
   },
   "files": [
-    "load-common-grunt-tasks.js"
+    "load-common-grunt-tasks.js",
+    "resources"
   ],
   "main": "load-common-grunt-tasks",
   "repository": {
@@ -25,11 +26,12 @@
     "url": "git://github.com/chmontgomery/load-common-grunt-tasks.git"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "grunt test"
   },
   "dependencies": {
     "grunt-contrib-jshint": "~0.7.2",
-    "grunt-mocha-test": "~0.8.1"
+    "grunt-mocha-test": "~0.8.1",
+    "grunt-mocha-cov": "~0.1.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

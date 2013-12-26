@@ -1,13 +1,18 @@
+var path = require('path');
+
 module.exports = function (grunt) {
 
     /*
      * we want to load the module dependencies from load-common-grunt-tasks so traverse the module tree to find them
      */
-    grunt.loadTasks('./node_modules/load-common-grunt-tasks/node_modules/grunt-contrib-jshint/tasks');
-    grunt.loadTasks('./node_modules/load-common-grunt-tasks/node_modules/grunt-mocha-test/tasks');
+    var pathToLoadCommon = './node_modules/load-common-grunt-tasks';
+    grunt.loadTasks(pathToLoadCommon + '/node_modules/grunt-contrib-jshint/tasks');
+    grunt.loadTasks(pathToLoadCommon + '/node_modules/grunt-mocha-test/tasks');
+    grunt.loadTasks(pathToLoadCommon + '/node_modules/grunt-mocha-cov/tasks');
 
+    var testCoverageOutputFile = 'test-coverage-output.html';
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON(pathToLoadCommon + '/package.json'),
         env: process.env,
         jshint: {
             // define the files to lint
@@ -19,16 +24,48 @@ module.exports = function (grunt) {
             }
         },
         mochaTest: {
-            test: {
+            unit: {
                 options: {
                     reporter: 'spec'
                 },
                 src: ['test/*.js']
+            },
+            functional: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['test-functional/*.js']
+            }
+        },
+        mochacov: {
+            options: {
+                reporter: 'html-cov',
+                require: ['should'],
+                output: testCoverageOutputFile
+            },
+            unit: {
+                src: ['test/*.js']
+            },
+            functional: {
+                src: ['test-functional/*.js']
             }
         }
     });
 
-    grunt.registerTask('test', ['mochaTest','jshint']);
+    grunt.registerTask('mochacov-wrapper', 'runs mochacov and generates html coverage report', function(type) {
+        var testType = (!type) ? '' : ':' + type;
+        // make blanket.js available to mocha
+        grunt.file.copy(pathToLoadCommon + "/resources/_instrument.js", pathToLoadCommon + "/node_modules/grunt-mocha-cov/lib/instrument.js");
+        grunt.task.run('mochacov' + testType);
+        grunt.log.writeln("View coverage report at " + path.resolve('./' + testCoverageOutputFile));
+    });
+
+    grunt.registerTask('test', function(type) {
+        var testType = (!type) ? '' : ':' + type;
+        grunt.task.run('mochaTest' + testType);
+        grunt.task.run('mochacov-wrapper' + testType);
+        grunt.task.run('jshint');
+    });
 
     grunt.registerTask('default', ['test']);
 };
