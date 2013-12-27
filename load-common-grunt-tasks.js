@@ -52,7 +52,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('mochacov-wrapper', 'runs mochacov and generates html coverage report', function(type) {
+    grunt.registerTask('mochacov-wrapper', 'Wrapper for mochacov which generates a js test coverage report to ' + testCoverageOutputFile, function(type) {
         var testType = (!type) ? '' : ':' + type;
         // make blanket.js available to mocha
         grunt.file.copy(pathToLoadCommon + "/resources/_instrument.js", pathToLoadCommon + "/node_modules/grunt-mocha-cov/lib/instrument.js");
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         grunt.log.writeln("View coverage report at " + path.resolve('./' + testCoverageOutputFile));
     });
 
-    grunt.registerTask('test', function(type) {
+    grunt.registerTask('test', 'Run tests, code coverage and jshint. Specify unit or functional only by using the ":<type>" flag', function(type) {
         var testType = (!type) ? '' : ':' + type;
         grunt.task.run('mochaTest' + testType);
         grunt.task.run('mochacov-wrapper' + testType);

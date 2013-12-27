@@ -6,6 +6,14 @@ Load common grunt tasks and configs so you don't need to redefine them for every
 
 Install with [npm](https://npmjs.org/package/load-common-grunt-tasks): `npm install --save-dev load-common-grunt-tasks`
 
+## Usage
+
+Run `grunt --help` for all available targets.
+
+* `grunt test` Run all tests (unit and functional), code coverage (unit and functional) and jshint.
+* `grunt test:unit` Run only unit test targets
+* `grunt test:functional` Run only functional test targets
+
 ## Example Config
 basic `Gruntfile.js`
 
